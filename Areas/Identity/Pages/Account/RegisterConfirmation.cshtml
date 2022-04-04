@@ -1,0 +1,41 @@
+﻿@page
+@model RegisterConfirmationModel
+@{
+    ViewData["Title"] = "Register confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+@{
+    if (@Model.DisplayConfirmAccountLink)
+    {
+<p>
+    <div id="tost_" class="toast show" role="alert">
+        <div class="toast-header">
+            <strong class="me-auto text-black">Welcome!</strong>
+            <small class="text-dark">@DateTime.Now.ToString("HH:mm")</small>
+            <button type="button" class="btn-close ms-2 mb-1" data-bs-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true"></span>
+            </button>
+        </div>
+        <div class="toast-body text-black">
+            Now that you're all signed up, let's begin.
+            <br>
+            <div class=" toast-body text-primary">
+                Use the navigation bar to manage or cluster your products
+            </div>
+        </div>
+    </div>
+</p>
+    }
+    else
+    {
+<p>
+        Please check your email to confirm your account.
+</p>
+    }
+}
+<script>
+    $(document).ready(function () {
+        $('.toast').toast('show');
+    });
+</script>
